@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "sass": "sass ./public/stylesheets/styles.scss ./public/stylesheets/styles.css",
+    "sass:min": "sass ./public/stylesheets/styles.scss ./public/stylesheets/styles.min.css --style compressed"
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

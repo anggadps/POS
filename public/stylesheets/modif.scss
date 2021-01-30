@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  #menu{
+    float: left;
+    width: calc(20% - 1px);
+    height: 100vh;
+    border-right: 1px solid #e8e5e5;
+  }
+  
+  .logo{
+    text-align: center;
+  }
+  
+  .box-menu{
+    margin:10px 20px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .box-menu i{
+    float: left;
+    color: rgb(90, 89, 88);
+  }
+  
+  .box-menu >p{
+    float: left;
+    margin: 0;
+    padding-left: 10px;
+  }
+  
+  .box-menu:hover{
+    background: #c2c2c2;
+  }
+  
+  .active{
+    background:#fc3;
+  }
+  
+  #content{
+    float: left;
+    width: 80%;
+    height: 100vh;
+  }
+  
+  .box-content{
+    margin:20px;
+  }
+  
+  .sub-menu{
+    margin: 10px 20px;
+    color: rgb(100, 98, 98);
+  }
+  
+  .link{
+    text-decoration-color: none;
+    color:#5a5958;
+  }
+  
+  .clear{
+    clear: both;
+  }
+  
+  .icon-logo{
+    size:10px
+  }
+
+  .shadow{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }

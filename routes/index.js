@@ -1,10 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const Dashboard = require('../controller/Dashboard');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('backend/layout', { title: 'Express' });
-});
+router.get('/', Dashboard.index);
 
 
 
