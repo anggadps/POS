@@ -4,7 +4,7 @@ $column:12;
     display: grid;
 }
 
-@for $i from 1 through $column{
+@for $i from 0 through $column{
     .grid-#{$i}{
         grid-template-columns: repeat($i,1fr);
     }
@@ -13,14 +13,64 @@ $column:12;
     }
 }
 
-@for $i from 1 through 100{
+@for $i from 0 through 100{
     .grid-gap-#{$i}{
        grid-gap: $i+px;
     }
     .p-#{$i}{
         padding:$i+px;
     }
+    .pt-#{$i}{
+        padding-top:$i+px;
+    }
+    .pl-#{$i}{
+        padding-left: $i+px;
+    }
+    .pr-#{$i}{
+        padding-right: $i+px;
+    }
+    .pb-#{$i}{
+        padding-bottom: $i+px;
+    }
+
+
     .m-#{$i}{
         margin:$i+px;
     }
+    .mt-#{$i}{
+        margin-top: $i+px;
+    }
+    .ml-#{$i}{
+        margin-left: $i+px;
+    }
+    .mr-#{$i}{
+        margin-right: $i+px;
+    }
+    .mb-#{$i}{
+        margin-bottom: $i+px;
+    }
+
+    .hp-#{$i}{
+        height: percentage($i/100);
+    }
+
+    .wp-#{$i}{
+        width: percentage($i/100);
+    }
+
+
+    .border-radius-#{$i}{
+        border-radius:$i+px;
+    }
+}
+
+@for $i from 0 through 1000{
+    .h-#{$i}{
+        height:$i+px;
+    }
+
+    .w-#{$i}{
+        width: $i+px;
+    }
+
 }

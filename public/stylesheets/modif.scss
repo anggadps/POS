@@ -71,3 +71,47 @@ body{
   .shadow{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+  
+  .text-center{
+    text-align: center;
+  }
+  
+  .m-auto{
+    margin: auto;
+  }
+
+  #login{
+    height:100vh;
+  }
+
+  .overflow-hide{
+    overflow:hidden;
+  }
+
+  .form-group{
+    width:100%;
+    margin:5px 0;
+  }
+  
+.input-form{
+  width:100%;
+  padding:10px 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #979695;
+  outline: none;
+}
+
+  label{
+    display:block;
+  }
+
+  .btn{
+    margin:5px 0;
+    width:100%;
+    padding:10px 15px;
+    border-radius: 10px;
+    border: 1px solid #979695;
+    outline: none;
+    cursor: pointer;
+  }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+
+<body>
+    <div id="login" class="grid">
+        <div class="m-auto">
+            <div class="grid grid-10 w-550  h-400 border-radius-10 overflow-hide">
+                <div class="grid-col-4 h-400 overflow-hide" style="background:red;position: relative;">
+                    <img class="hp-100" src="./images/cashier.jpg" alt="cashier">
+                </div>
+                <div class="grid-col-6" style="background:orange;color: #fff;">
+                    <div class="grid h-400">
+                        <div class="m-auto wp-80">
+                            <h2 class="text-center">Selamat Datang</h2>
+                            <form action="/login" method="POST">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="input-form" name="email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" class="input-form" name="password" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>
