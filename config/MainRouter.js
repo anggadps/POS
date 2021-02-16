@@ -5,9 +5,11 @@ const reportRouter = require('../routes/report');
 const settingRouter = require('../routes/setting');
 const supplierRouter = require('../routes/supplier');
 const stokRouter = require('../routes/stok');
+const authentication = require('../helpers/authentication');
 
 const MainRouter = (app) => {
     app.use('/', indexRouter);
+    app.use(authentication);
     app.use('/users', usersRouter);
     app.use('/produk', produkRouter);
     app.use('/report', reportRouter);

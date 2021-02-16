@@ -3,7 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const expiryDate = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000); // 2 days
+const sessionSecret = "pos" 
+var expressSession = require('cookie-session');
 const MainRouter = require('./config/MainRouter');
+
 
 var app = express();
 
@@ -16,6 +20,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secureProxy: true,
+    httpOnly: true,
+    expires: expiryDate
+  }
+})); 
 
 MainRouter(app);
 

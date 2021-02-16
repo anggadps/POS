@@ -3,7 +3,8 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'pos'
+  database : 'pos',
+  port : '3307'
 });
  
 connection.connect(function(err) {
