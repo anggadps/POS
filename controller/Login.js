@@ -5,11 +5,13 @@ const {decrypt} = require('../helpers/bcrypt');
 
 class Login {
     static index(req, res, next) {
+        const alert = req.flash("error");
         if(req.session.isLogin){
             return res.redirect('/');
         }
         res.render('frontend', {
-            title: 'Form Login'
+            title: 'Form Login',
+            isAlert: alert 
         });
     }
 
@@ -43,14 +45,16 @@ class Login {
             }else{
                 response.status = "Error";
                 response.message = "Password Salah!";
+                response.email = req.body.email;
             }
 
         } else {
             response.status = "Error";
             response.message = "Email Salah!";
+            response.email = req.body.email;
         }
         
-
+        req.flash("error", response);
         if(response.status == "Success"){
             res.redirect('/');
         }else{

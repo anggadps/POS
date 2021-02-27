@@ -1,17 +1,79 @@
-<div id="box">
-    <div class="grid grid-6 grid-gap-10">
-        <div class="grid-col-4" style="height: 300px;">
-            <div class="grid grid-3 grid-gap-10">
-                <div class="grid-col-1 shadow"
-                    style="background:#f0f;height: 150px;border-radius: 15px;text-align: center">1</div>
-                <div class="grid-col-1 shadow"
-                    style="background:#f0f;height: 150px;border-radius: 15px;text-align: center">2</div>
-                <div class="grid-col-1 shadow"
-                    style="background:#f0f;height: 150px;border-radius: 15px;text-align: center">3</div>
+<button id="myBtn">Add Products</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Add New Products</h2>
+        </div>
+        <div class="modal-body">
+            <div class="box-produk">
+                <form action="">
+                    <div class="grid grid-2 grid-gap-10">
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <input type="text" class="input-form" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <label for="">Name</label>
+                                <select name="produk_type_id" class="input-form">
+                                    <option value="">----- Select -----</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <label for="">Supplier</label>
+                                <select class="input-form">
+                                    <option value="">----- Select -----</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="grid grid-3 grid-gap-10">
+                                <div class="form-group">
+                                    <label for="">Harga Supplier</label>
+                                    <input type="text" class="input-form" placeholder="Harga Supplier">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Margin Harga</label>
+                                    <input type="text" class="input-form" placeholder="Margin Harga">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Harga Jual</label>
+                                    <input type="text" class="input-form" placeholder="Harga Jual">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <label>Images</label>
+                                <input type="text" class="input-form" placeholder="Images">
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <label>Qty</label>
+                                <input type="text" class="input-form" placeholder="Qty">
+                            </div>
+                        </div>
+                        <div class="grid-col-1">
+                            <div class="form-group">
+                                <button class="border-radius-10"
+                                    style="padding:10px 15px;background:#f00;color:#fff;border: none;outline:none">Add
+                                    Produk</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="grid-col-2 shadow" style="background:#fc3;height:300px;border-radius: 15px;">
-
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
         </div>
     </div>
 </div>

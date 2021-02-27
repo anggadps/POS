@@ -25,7 +25,9 @@
                             <form action="/login" method="POST">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="input-form" name="email" placeholder="Email">
+                                    <input type="text" class="input-form" name="email" placeholder="Email" value="<%= isAlert.length > 0 ? isAlert[0].email:'' %>">
+                                    <p class="m-0" style="color:#f00;"><%= isAlert.length > 0 ? isAlert[0].message:'' %></p>
+                                    
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
