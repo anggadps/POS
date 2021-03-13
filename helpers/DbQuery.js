@@ -1,7 +1,7 @@
 const db = require('../config/database');
-const SelectQuery = ({ table = {}, fields = {}, where = {} }) => {
+const SelectQuery = ({ table = {}, fields = {}, where = {},limit="" }) => {
     let run = new Promise((resolve, reject) => {
-        const query = "SELECT " + fieldsMap(fields) + " FROM " + table + " " + fieldsWhereMap(where);
+        const query = "SELECT " + fieldsMap(fields) + " FROM " + table + " " + fieldsWhereMap(where) + ((limit != "") ? `LIMIT ${limit}`:"");
         console.log(where);
         db.query(query, function (err, result) {
             if (err) throw err;

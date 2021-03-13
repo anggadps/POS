@@ -1,79 +1,256 @@
-<button id="myBtn">Add Products</button>
+<button id="btnAddProduk" class="mb-20">Add Products</button>
+<div class="grid grid-1">
+    <table id="tableProduk">
+        <thead>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Harga Supplier</th>
+            <th>Margin Harga</th>
+            <th>Harga Jual</th>
+            <th>Jumlah</th>
+            <th>Aksi</th>
+        </thead>
+        <tbody>
+            <% for(let [index,data] of produk.entries()){%>
+                <tr>
+                    <td>
+                        <%= data.id; %>
+                    </td>
+                    <td>
+                        <%= data.name; %>
+                    </td>
+                    <td>
+                        <%= data.harga_supplier; %>
+                    </td>
+                    <td>
+                        <%= data.margin_harga; %>
+                    </td>
+                    <td>
+                        <%= data.harga_jual; %>
+                    </td>
+                    <td>
+                        <%= data.stok; %>
+                    </td>
+                    <td>Aksi</td>
+                </tr>
+                <%}%>
+        </tbody>
+    </table>
+</div>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-            <h2>Add New Products</h2>
-        </div>
-        <div class="modal-body">
-            <div class="box-produk">
-                <form action="">
-                    <div class="grid grid-2 grid-gap-10">
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <label for="">Name</label>
-                                <input type="text" class="input-form" name="name" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <label for="">Name</label>
-                                <select name="produk_type_id" class="input-form">
-                                    <option value="">----- Select -----</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <label for="">Supplier</label>
-                                <select class="input-form">
-                                    <option value="">----- Select -----</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grid-col-1">
-                            <div class="grid grid-3 grid-gap-10">
+<div id="modalProduk" class="modal">
+    <form id="form-produk">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Add New Products</h2>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="id" value="">
+                <div class="box-produk">
+                    <form action="">
+                        <div class="grid grid-2 grid-gap-10">
+                            <div class="grid-col-1">
                                 <div class="form-group">
-                                    <label for="">Harga Supplier</label>
-                                    <input type="text" class="input-form" placeholder="Harga Supplier">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Margin Harga</label>
-                                    <input type="text" class="input-form" placeholder="Margin Harga">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Harga Jual</label>
-                                    <input type="text" class="input-form" placeholder="Harga Jual">
+                                    <label for="">Name</label>
+                                    <input name="name" type="text" class="input-form" name="name" placeholder="Name">
                                 </div>
                             </div>
-                        </div>
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <label>Images</label>
-                                <input type="text" class="input-form" placeholder="Images">
+                            <div class="grid-col-1">
+                                <div class="form-group">
+                                    <label for="">Produk Type</label>
+                                    <select name="produk_type_id" class="input-form">
+                                        <option value="">----- Select -----</option>
+                                        <% for(let [key, value] of produk_types.entries()){ %>
+                                            <option value="<%= value.id %>"><%=value.name %></option>
+                                        <%}%>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid-col-1">
+                                <div class="form-group">
+                                    <label for="">Supplier</label>
+                                    <select class="input-form">
+                                        <option value="">----- Select -----</option>
+                                        <% for(let [key, value] of supplier.entries()){ %>
+                                            <option value="<%= value.id %>"><%=value.name %></option>
+                                        <%}%>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="grid-col-1">
+                                <div class="grid grid-3 grid-gap-10">
+                                    <div class="form-group">
+                                        <label for="">Harga Supplier</label>
+                                        <input name="harga_supplier" type="number" class="input-form"
+                                            placeholder="Harga Supplier">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Margin Harga</label>
+                                        <input name="margin_harga" type="number" class="input-form"
+                                            placeholder="Margin Harga">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Harga Jual</label>
+                                        <input name="harga_jual" type="number" class="input-form"
+                                            placeholder="Harga Jual">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-col-1">
+                                <div class="form-group">
+                                    <label>Images</label>
+                                    <input name="image_url" type="file" class="input-form" placeholder="Images">
+                                </div>
+                            </div>
+                            <div class="grid-col-1">
+                                <div class="grid grid-2 grid-gap-10">
+                                    <div class="form-group">
+                                        <label>Stok</label>
+                                        <input name="stok" type="number" class="input-form" placeholder="Qty">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pengingat</label>
+                                        <input name="pengingat_stok" type="number" class="input-form" placeholder="Qty">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-col-1">
+                                <div class="form-group">
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <label>Qty</label>
-                                <input type="text" class="input-form" placeholder="Qty">
-                            </div>
-                        </div>
-                        <div class="grid-col-1">
-                            <div class="form-group">
-                                <button class="border-radius-10"
-                                    style="padding:10px 15px;background:#f00;color:#fff;border: none;outline:none">Add
-                                    Produk</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnSaveProduk" class="border-radius-10"
+                                        style="padding:10px 15px;background:#f00;color:#fff;border: none;outline:none">Save
+                                        </button>
             </div>
         </div>
-        <div class="modal-footer">
-            <h3>Modal Footer</h3>
-        </div>
-    </div>
+    </form>
 </div>
+
+<script>
+    $(function () {
+
+        var table = $("#tableProduk").DataTable({
+            "processing": true,
+            "serverSide": true,
+            "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+            "ajax": {
+                url: "/produk/getAll",
+                data: function (data) {
+                    return data;
+                }
+            },
+            columns: [
+                { data: "id" },
+                { data: "name" },
+                { data: "harga_supplier" },
+                { data: "harga_jual" },
+                { data: "margin_harga" },
+                { data: "stok" },
+                { data: "id" }
+            ],
+            columnDefs: [
+                {
+                    targets: [0],
+                    className: "text-center",
+                },
+                {
+                    targets: [1],
+                    className: "text-center",
+                },
+                {
+                    targets: [2],
+                    className: "text-center",
+                },
+                {
+                    targets: [3],
+                    className: "text-center",
+                },
+                {
+                    targets: [4],
+                    className: "text-center",
+                },
+                {
+                    targets: [5],
+                    className: "text-center",
+                },
+                {
+                    targets: [6],
+                    className: "text-center",
+                    "render": function (data, type, row) {
+                        return `<div>
+                         <button data-id=${data} class="btn-edit" type="button"><i class="fa fa-pen-square"></i></button>
+                         <button data-id=${data} class="border-none" type="button"><i class="fa fa-trash-alt"></i></button>
+                         </div>`;
+                    }
+                }
+            ]
+        });
+
+        $("#btnAddProduk").click(function () {
+            $("#modalProduk").openPopup();
+        });
+
+        $(".close").click(function () {
+            $("#modalProduk").closePopup();
+        });
+
+        $("#btnSaveProduk").click(function (e) {
+            e.preventDefault();
+            var data = $("#form-produk").serialize();
+            console.log(data);
+        });
+
+        $("#btnSaveProduk").click(function (e) {
+            e.preventDefault();
+            var data = $("#form-produk").serialize();
+            $.ajax({
+                url: '/produk/add',
+                method: 'POST',
+                data: data,
+                success: function (res) {
+                    if (res.status == "success") {
+                        $("input").val("");
+                        $("select").selectedIndex =1;
+                        $("#modalProduk").closePopup();
+                        table.ajax.reload();
+                    }
+                },
+                error: function (err) {
+                    consolse.error(err);
+                }
+            });
+        });
+
+
+        $(document).on("click",".btn-edit", function (e) {
+            var id = $(this).data("id");
+            $.ajax({
+                url: `/produk/get/${id}`,
+                success: function (res) {
+                    // console.log(res.data[0]);
+                    if (res.status == "success") {
+                        // alert(res.data[0].id);
+                        $("input[name='id']").val(res.data[0].id);
+                        $("input[name='name']").val(res.data[0].name);
+                        $("input[name='margin_harga']").val(res.data[0].margin_harga);
+                        $("input[name='harga_supplier']").val(res.data[0].harga_supplier);
+                        $("input[name='harga_jual']").val(res.data[0].harga_jual);
+                        $("input[name='stok']").val(res.data[0].stok);
+                        $("input[name='pengingat_stok']").val(res.data[0].pengingat_stok);
+                        $("#modalProduk").openPopup();
+                    }
+                }
+            })
+        });
+
+
+    })
+</script>
